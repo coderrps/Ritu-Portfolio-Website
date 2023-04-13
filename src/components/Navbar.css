@@ -1,0 +1,35 @@
+* {
+    font-family: serif;
+}
+#lmao {
+    font-size: 20px;
+    padding: 20px;
+    justify-content: right;
+}
+#mynav {
+    background-color: #021648;
+}
+ul {
+    text-align: center;
+}
+ul li{
+    padding-right: 20px;
+}
+.follow-btn {
+    padding-right: 60px;
+}
+.btn {
+    color: rgb(0, 0, 0);
+    border-radius: 12px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: white;
+}
+.btn:hover {
+    box-shadow: 0 8px 16px 0 rgba(203, 203, 203, 0.758), 0 6px 20px 0 rgba(255, 255, 255, 0.642);    border-radius: 10px;
+}
+.logo {
+    width: 100px;
+    padding: 0px;
+    margin: 0 auto;
+}
