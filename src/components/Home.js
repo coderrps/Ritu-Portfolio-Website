@@ -52,19 +52,39 @@ export const Home = () => {
             </div>
             <div>
               <div className="social-icons-home">
-                <a href="" className="home-icons">
+                <a
+                  target="_blank"
+                  href="https://github.com/coderrps"
+                  className="home-icons"
+                >
                   <FaGithub />
                 </a>
-                <a href="" className="home-icons">
+                <a
+                  target="_blank"
+                  href="https://www.instagram.com/_ritupriyasingh/"
+                  className="home-icons"
+                >
                   <FaInstagram />
                 </a>
-                <a href="" className="home-icons">
+                <a
+                  href="https://www.linkedin.com/in/ritupriyasingh/"
+                  className="home-icons"
+                  target="_blank"
+                >
                   <FaLinkedin />
                 </a>
-                <a href="" className="home-icons">
+                <a
+                  href="https://www.facebook.com/profile.php?id=100040492637149&mibextid=ZbWKwL"
+                  target="_blank"
+                  className="home-icons"
+                >
                   <FaFacebook />
                 </a>
-                <a href="" className="home-icons">
+                <a
+                  target="_blank"
+                  href=" https://wa.me/+919910901975"
+                  className="home-icons"
+                >
                   <FaWhatsapp />
                 </a>
               </div>
@@ -448,7 +468,11 @@ export const Home = () => {
                 </div>
                 <div class="app-contact">CONTACT INFO : +91-9910901975</div>
               </div>
-              <form action="https://formspree.io/f/mdovppjv" method="POST" class="screen-body-item">
+              <form
+                action="https://formspree.io/f/mdovppjv"
+                method="POST"
+                class="screen-body-item"
+              >
                 <div class="screen-body-item">
                   <div class="app-form">
                     <div class="app-form-group">
