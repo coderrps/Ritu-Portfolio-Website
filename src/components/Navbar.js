@@ -75,8 +75,7 @@ export const Navbar = () => {
           </div>
           <div className="follow-btn">
             <a
-              href="https://drive.google.com/file/d/1fg22wCCH9haFGBwZuFyeI05cg8RzyWXU/view?usp=share_link"
-              target="_blank"
+              href="#home"
             >
               <button type="button" class="btn">
                 Resume
