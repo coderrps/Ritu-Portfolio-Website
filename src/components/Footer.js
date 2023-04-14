@@ -57,7 +57,7 @@ export const Footer = () => {
             </a>
             <a
               target="_blank"
-              href=" https://wa.me/+919910901975"
+              href=" https://wa.me/+911234567890"
               className="icons"
             >
               <FaWhatsapp />
@@ -120,10 +120,10 @@ export const Footer = () => {
                   <FaHome /> New Delhi, India 110059, IN
                 </p>
                 <p className="links">
-                  <FaEnvelope /> rs9110131217@gmail.com
+                  <FaEnvelope /> ritupriyasingh08@gmail.com
                 </p>
                 <p className="links">
-                  <FaPhone /> +91-9910901975
+                  <FaPhone /> +91-1234567890
                 </p>
               </div>
             </div>
