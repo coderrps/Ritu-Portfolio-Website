@@ -82,7 +82,7 @@ export const Home = () => {
                 </a>
                 <a
                   target="_blank"
-                  href=" https://wa.me/+919910901975"
+                  href=" https://wa.me/+911234567890"
                   className="home-icons"
                 >
                   <FaWhatsapp />
@@ -466,7 +466,7 @@ export const Home = () => {
                   <span>CONTACT</span>
                   <span>US</span>
                 </div>
-                <div class="app-contact">CONTACT INFO : +91-9910901975</div>
+                <div class="app-contact">CONTACT INFO : +91-1234567890</div>
               </div>
               <form
                 action="https://formspree.io/f/mdovppjv"
