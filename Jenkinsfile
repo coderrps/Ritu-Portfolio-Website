@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-
-    }
+    agent any
 
     environment {
         IMAGE_NAME = 'Portfolio'
@@ -53,6 +51,6 @@ label 'docker'        stage("Clone Repository") {
         failure {
             echo 'Build failed'
         }
-        
+
     }
 }
