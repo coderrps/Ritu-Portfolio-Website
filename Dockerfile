@@ -1,18 +1,20 @@
-# Use an official Node runtime as a parent image
-FROM node:14.5.0-alpine
+# Build Stage
+FROM node:18-alpine as builder
 
-# Set the working directory to /app
 WORKDIR /app
-
-# Copy the current directory contents into the container at /app
-COPY . .
-
-# Install any needed packages specified in package.json
+COPY package*.json ./
 RUN npm install
-RUN npm install react-scripts -g
 
-# Make port 3000 available to the world outside this container
-EXPOSE 3000
+COPY . .
+RUN npm run build
 
-# Define the command to run the app
-CMD [ "npm", "start" ]
+# Serve Stage
+FROM nginx:alpine
+
+# Copy build output to Nginx
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Expose port
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
