@@ -8,7 +8,7 @@ pipeline {
     }
 
     stages {
-label 'docker'        stage("Clone Repository") {
+        stage("Clone Repository") {
             steps {
                 git 'https://github.com/coderrps/Ritu-Portfolio-Website.git'
             }
