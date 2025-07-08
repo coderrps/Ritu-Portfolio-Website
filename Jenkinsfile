@@ -1,29 +1,58 @@
 pipeline {
-    agent any
-    
+    agent {
+
+    }
+
+    environment {
+        IMAGE_NAME = 'Portfolio'
+        DOCKER_USERNAME = ''
+        DOCKER_PASSWORD = credentials('bae46c59-7f42-4680-8b58-4720e721054e')
+    }
+
     stages {
-        stage('Build') {
+label 'docker'        stage("Clone Repository") {
             steps {
-                // Checkout the code from Git repository
-                git branch: 'main', url: 'https://github.com/coderrps/Ritu-Portfolio-Website.git'
-                
-                // Build the Docker image and tag it with the commit hash
+                git 'https://github.com/coderrps/Ritu-Portfolio-Website.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
                 script {
-                    def image = docker.build("ritu-portfolio:${env.BUILD_ID}")
-                    sh "docker tag ${image.id} ritu-portfolio:latest"
+                    docker.build(${IMAGE_NAME})
                 }
             }
         }
-        
-        stage('Deploy') {
-            environment {
-                KUBECONFIG = credentials('kubeconfig')
-            }
-            
+
+        stage('Login to DockeHub') {
             steps {
-                // Deploy the website to Kubernetes
-                sh 'kubectl apply -f deployment.yaml'
+                script {
+                    docker.withRegistry('', 'bae46c59-7f42-4680-8b58-4720e721054e') {
+                        echo 'Logged in to DockerHub'
+                    }
+                }
             }
         }
+
+        stage('Push to DockerHub') {
+            steps {
+                script {
+                    docker.withRegistry('', 'bae46c59-7f42-4680-8b58-4720e721054e') {
+                        def customImage = docker.build(${IMAGE_NAME})
+                        customImage.push("latest")
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Docker Image built and pushed successfully!'
+        }
+        failure {
+            echo 'Build failed'
+        }
+        
     }
 }
