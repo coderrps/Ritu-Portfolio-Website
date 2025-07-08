@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = 'Portfolio'
-        DOCKER_USERNAME = ''
+        DOCKER_USERNAME = 'ritu888'
         DOCKER_PASSWORD = credentials('bae46c59-7f42-4680-8b58-4720e721054e')
     }
 
@@ -25,7 +25,7 @@ label 'docker'        stage("Clone Repository") {
         stage('Login to DockeHub') {
             steps {
                 script {
-                    docker.withRegistry('', 'bae46c59-7f42-4680-8b58-4720e721054e') {
+                    docker.withRegistry('https://index.docker.io/v1/', 'bae46c59-7f42-4680-8b58-4720e721054e') {
                         echo 'Logged in to DockerHub'
                     }
                 }
@@ -35,7 +35,7 @@ label 'docker'        stage("Clone Repository") {
         stage('Push to DockerHub') {
             steps {
                 script {
-                    docker.withRegistry('', 'bae46c59-7f42-4680-8b58-4720e721054e') {
+                    docker.withRegistry('https://index.docker.io/v1/', 'bae46c59-7f42-4680-8b58-4720e721054e') {
                         def customImage = docker.build(${IMAGE_NAME})
                         customImage.push("latest")
                     }
